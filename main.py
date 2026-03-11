@@ -1,17 +1,20 @@
-from leitura_conversão.leitura_conversao import (
+from src.visao_computacional.leitura_conversao import (
     ajuste_brilho_contraste,
     calcular_metricas,
     equalizar_imagem,
 )
 import cv2
 import matplotlib.pyplot as plt
+import os
 
+base_dir = os.path.dirname(__file__)
+caminho_imagem = os.path.join(base_dir, "src", "image", "transferir.jpg")
 
 # ===============================
 # CARREGANDO IMAGEM
 # ===============================
 
-imagem = cv2.imread(r"image\transferir.jpg", cv2.IMREAD_GRAYSCALE)
+imagem = cv2.imread(caminho_imagem, cv2.IMREAD_GRAYSCALE)
 
 # ===============================
 # AJUSTE DE BRILHO E CONTRASTE
@@ -38,7 +41,7 @@ print("Brilho médio:", brilho_eq)
 print("Contraste:", contraste_eq)
 
 # Carrega imagem em escala de cinza
-imagem = cv2.imread("image/transferir.jpg", cv2.IMREAD_GRAYSCALE)
+imagem = cv2.imread(caminho_imagem, cv2.IMREAD_GRAYSCALE)
 
 # Calcula histograma
 hist = cv2.calcHist([imagem], [0], None, [256], [0, 256])
@@ -62,3 +65,7 @@ cv2.imshow("Equalizada", equalizada)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+# ===============================
+# MOSTRAR IMAGENS
+# ===============================

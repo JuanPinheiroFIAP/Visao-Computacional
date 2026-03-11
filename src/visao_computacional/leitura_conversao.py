@@ -24,3 +24,18 @@ def calcular_metricas(imagem):
     brilho = imagem.mean()
     contraste = imagem.std()
     return brilho, contraste
+
+
+def aplly_thresholding(image, thresholding=127):
+    # Usa um limiar um limite, para indicar o seguinte: os valores de estiverem abaixo deste limiar serão considerados pixels com intensidade de cor preta
+    # Acima do limiar, cor branca
+
+    _, binary = cv2.thresolding(image, thresholding, 255, cv2.THRESH_BINARY)
+    return binary
+
+
+# def apply_otsu(image):
+
+
+# def apply_mophology(binary_image):
+#     kernel = cv2.get
